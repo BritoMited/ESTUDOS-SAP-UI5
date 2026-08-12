@@ -1,8 +1,52 @@
 <mvc:View
     xmlns="sap.m" 
     xmlns:mvc="sap.ui.core.mvc"
+    xmlns:f="sap.ui.layout.form"
+    xmlns:layout="sap.ui.layout"
     controllerName="ui5.walkthrough.controller.App">
 <Button text="{translatableText>PressMe}"></Button>
 <Input value="{/recipient/name}"/>
+
+<layout:Grid>
+    <Image id="image1" src="images/Sample.png" width="100px" height="100px" press="onImagePress" class="sapUiSmallMargin">
+    	<layoutData>
+            <layout:GridData
+                span="L12 M3 S8"
+                linebreakL="true"
+                linebreakM="true"
+                linebreakS="true" />
+        </layoutData>
+    </Image>
+    <Image id="image2" src="images/Sample.png" width="100px" height="100px" press="onImagePress" class="sapUiSmallMargin">
+    	<layoutData>
+            <layout:GridData
+                span="L12 M3 S8"
+                linebreakL="true"
+                linebreakM="true"
+                linebreakS="true" />
+        </layoutData>    
+    </Image>
+
+    <f:SimpleForm id="SimpleFormChange354">
+        <f:content>
+        <Toolbar>
+            <content>
+                <Label text="Esse texto é um texto de botão de opção">
+                </Label>
+            </content>
+        </Toolbar>
+            <RadioButtonGroup id="rbg1" columns="3" width="100%" class="sapUiMediumMarginBottom">
+                <buttons>
+                    <RadioButton id="RB1-1" text="Long Option Number 1" />
+                    <RadioButton id="RB1-2" text="Option 2" enabled="false" />
+                    <RadioButton id="RB1-3" text="Nr. 3" editable="false" />
+                    <RadioButton id="RB1-4" text="Long Option 4" />
+                    <RadioButton id="RB1-5" text="Option 5" />
+                    <RadioButton id="RB1-6" text="Nr. 6" />
+                </buttons>
+            </RadioButtonGroup>  
+        </f:content>
+    </f:SimpleForm>
+</layout:Grid>
 
 </mvc:View>
