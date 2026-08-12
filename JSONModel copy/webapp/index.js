@@ -1,7 +1,7 @@
 sap.ui.define(["sap/ui/core/mvc/XMLView"],(XMLView)=>{
     "use strict"
 
-    XMLView.create({
+    XMLView.create({ 
         viewName:"ui5.walkthrough.view.App"
     }).then(
         (oView)=>{
