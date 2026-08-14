@@ -4,8 +4,13 @@
     xmlns:f="sap.ui.layout.form"
     xmlns:layout="sap.ui.layout"
     controllerName="ui5.walkthrough.controller.App">
-<Button text="{translatableText>PressMe}"></Button>
-<Input value="{/recipient/name}"/>
+<Button text="{i18n>PressMe}"></Button>
+
+<Input  id="firstNameInput"
+        value="{/firstName}"/>
+
+<Input  id="lastNameInput"
+        value="{/lastName}"/>
 
 <layout:Grid>
     <Image id="image1" src="images/Sample.png" width="100px" height="100px" press="onImagePress" class="sapUiSmallMargin">
@@ -48,5 +53,42 @@
         </f:content>
     </f:SimpleForm>
 </layout:Grid>
+
+<Table id="idProductsTable"
+    inset="false"
+    items="{/SweetShops}">
+
+    <headerToolbar>
+        <OverflowToolbar>
+            <content>
+                <Title text="Products" level="H2"/>
+                <ToolbarSpacer />
+            </content>
+        </OverflowToolbar>
+    </headerToolbar>
+
+    <columns>
+        <Column
+            width="12em">
+            <Text text="ID" />
+        </Column>
+        <Column
+            width="12em">
+            <Text text="Name" />
+        </Column>
+    </columns>
+
+    <items>
+        <ColumnListItem vAlign="Middle">
+            <cells>
+                <Text
+                    text="{ID}" />
+                <Text
+                    text="{Name}" />
+            </cells>
+        </ColumnListItem>
+    </items>
+    
+</Table>
 
 </mvc:View>
