@@ -61,7 +61,7 @@
     <headerToolbar>
         <OverflowToolbar>
             <content>
-                <Title text="Products" level="H2"/>
+                <Title text="Sweet Shops {/CountSweets}" level="H2"/>
                 <ToolbarSpacer />
             </content>
         </OverflowToolbar>
