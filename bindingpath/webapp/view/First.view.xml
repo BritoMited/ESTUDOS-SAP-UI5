@@ -3,7 +3,7 @@
     xmlns:mvc="sap.ui.core.mvc"
     xmlns:f="sap.ui.layout.form"
     xmlns:layout="sap.ui.layout"
-    controllerName="ui5.walkthrough.controller.App">
+    controllerName="ui5.walkthrough.controller.First">
 <Button text="{i18n>PressMe}"></Button>
 
 <Input  id="firstNameInput"
@@ -80,7 +80,7 @@
     </columns>
 
     <items>
-        <ColumnListItem vAlign="Middle">
+        <ColumnListItem vAlign="Middle" type="Navigation" press="onListItemPress">
             <cells>
                 <Text
                     text="{ID}" />
