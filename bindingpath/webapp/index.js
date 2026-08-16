@@ -1,11 +1,11 @@
-sap.ui.define(["sap/ui/core/mvc/XMLView"],(XMLView)=>{
+sap.ui.define(["sap/ui/core/ComponentContainer", "ui5/walkthrough/Component", "sap/m/Shell"], (ComponentContainer, Component, Shell) => {
     "use strict"
 
-    XMLView.create({ 
-        viewName:"ui5.walkthrough.view.App"
-    }).then(
-        (oView)=>{
-            oView.placeAt("content")
-        }
-    )
+    new Shell({
+        app: new ComponentContainer({
+            height: "100%",
+            component: new Component({ id: "uiComponent" })
+        })
+
+    }).placeAt("content")
 })
