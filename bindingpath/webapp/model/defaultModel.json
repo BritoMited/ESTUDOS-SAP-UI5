@@ -1,0 +1,24 @@
+{
+  "CountSweets": 2,
+  "SweetShops": [
+    {
+      "ID": 0,
+      "Name": "doces do marcao",
+      "Address": {
+        "Street": "na esquina da outra lá",
+        "City": "curitibia",
+        "Country": "paranabrasil"
+      }
+    },
+    {
+      "ID": 1,
+      "Name": "concorrente dos doces do marcao",
+      "Address": {
+        "Street": "na esquina da li",
+        "City": "curitibio",
+        "Country": "paranaeua "
+      }
+    }
+  ]
+}
+

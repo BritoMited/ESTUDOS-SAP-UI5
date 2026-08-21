@@ -1,5 +1,5 @@
 sap.ui.define(["sap/ui/core/mvc/Controller","sap/ui/model/json/JSONModel",
-               "sap/ui/model/resource/ResourceModel", "sap/m/MessageToast"],(Controller, JSONModel, ResourceModel, MessageToast)=>{
+               "sap/ui/model/resource/ResourceModel","sap/m/MessageToast"],(Controller, JSONModel, ResourceModel, MessageToast)=>{
     "use strict"
     
     return Controller.extend("ui5.walkthrough.controller.First",{
@@ -12,35 +12,32 @@ sap.ui.define(["sap/ui/core/mvc/Controller","sap/ui/model/json/JSONModel",
             this.getView().byId("firstNameInput").setModel(oModel)
             this.getView().byId("lastNameInput").setModel(oModel)
 
-            var OJsonModel = new JSONModel({
-                CountSweets: 2,
-                SweetShops: [
-                    {
-                        ID : 0,
-                        Name : "doces do marcao",
-                        Address : {
-                            Street : "na esquina da outra lá",
-                            City : "curitibia",
-                            Country : "paranabrasil"
-                        }
-                    },
-                    {
-                        ID : 1,
-                        Name : "concorrente dos doces do marcao",
-                        Address : {
-                            Street : "na esquina da li",
-                            City : "curitibio",
-                            Country : "paranaeua "
-                        }
-                    }
-                ] 
-            })
+            // var OJsonModel = new JSONModel({
+            //     CountSweets: 2,
+            //     SweetShops: [
+            //         {
+            //             ID : 0,
+            //             Name : "doces do marcao",
+            //             Address : {
+            //                 Street : "na esquina da outra lá",
+            //                 City : "curitibia",
+            //                 Country : "paranabrasil"
+            //             }
+            //         },
+            //         {
+            //             ID : 1,
+            //             Name : "concorrente dos doces do marcao",
+            //             Address : {
+            //                 Street : "na esquina da li",
+            //                 City : "curitibio",
+            //                 Country : "paranaeua "
+            //             }
+            //         }
+            //     ] 
+            // })
 
             //this.getView().setModel(OJsonModel) 
-            sap.ui.getCore().setModel(OJsonModel) 
-            this.getView().setModel(new ResourceModel({
-                bundleName: "ui5.walkthrough.i18n.i18n"
-            }), "i18n" )
+            //sap.ui.getCore().setModel(OJsonModel) 
         },
         
         onImagePress : function(oEvent){
@@ -48,14 +45,25 @@ sap.ui.define(["sap/ui/core/mvc/Controller","sap/ui/model/json/JSONModel",
         },
 
         onListItemPress : function(oEvent){
-            var oApp = this.getView().getParent().getParent().byId("app")
-            var oDetailPage = this.getView().getParent().getParent().byId("detailPageId")
 
-            var oContext = oEvent.getSource().getBindingContext()
+            // var oApp = this.getView().getParent().getParent().byId("app")
+            // var oDetailPage = this.getView().getParent().getParent().byId("detailPageId")
 
-            oDetailPage.setBindingContext(oContext)
+            // var oContext = oEvent.getSource().getBindingContext()
 
-            oApp.to(oDetailPage)
+            // oDetailPage.setBindingContext(oContext)
+
+            // oApp.to(oDetailPage)
+
+            var oSelectedItem = oEvent.getSource()
+            var oContext = oSelectedItem.getBindingContext()
+
+            var oRouter = sap.ui.core.UIComponent.getRouterFor(this)
+
+            oRouter.navTo("detail", {
+                ID : oContext.getProperty("ID")
+            })
+
         }
     })
 })
