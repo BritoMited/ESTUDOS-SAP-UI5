@@ -1,6 +1,116 @@
 {
-    "_version" : "1.2.0",
-    "sap.app" : {
-        "id" : "ui5.walkthrough"
+  "_version": "1.86.0",
+  "sap.app": {
+    "id": "ui5.walkthrough.bindingpath",
+    "type": "application",
+    "i18n": "i18n/i18n.properties",
+    "applicationVersion": {
+      "version": "0.0.1"
+    },
+    "title": "{{appTitle}}",
+    "description": "{{appDescription}}",
+    "resources": "resources.json",
+    "sourceTemplate": {
+      "id": "@sap/generator-fiori:basic",
+      "version": "1.31.1",
+      "toolsId": "de7b8168-740d-4931-a18f-2080cfd51c72"
     }
+  },
+  "sap.ui": {
+    "technology": "UI5",
+    "icons": {
+      "icon": "",
+      "favIcon": "",
+      "phone": "",
+      "phone@2": "",
+      "tablet": "",
+      "tablet@2": ""
+    },
+    "deviceTypes": {
+      "desktop": true,
+      "tablet": true,
+      "phone": true
+    }
+  },
+  "sap.ui5": {
+    "flexEnabled": true,
+    "dependencies": {
+      "minUI5Version": "1.151.0",
+      "libs": {
+        "sap.m": {},
+        "sap.ui.core": {}
+      }
+    },
+    "contentDensities": {
+      "compact": true,
+      "cozy": true
+    },
+    "models": {
+      "i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "settings": {
+          "bundleName": "ui5.walkthrough.i18n.i18n"
+        }
+      },
+      "": {
+        "type": "sap.ui.model.json.JSONModel",
+        "uri": "model/defaultModel.json",
+        "settings": {
+          "bundleName": ""
+        },
+        "preload": true
+      }
+    },
+    "resources": {
+      "css": [
+        {
+          "uri": "css/style.css"
+        }
+      ]
+    },
+    "routing": {
+      "config": {
+        "routerClass": "sap.m.routing.Router",
+        "type": "View",
+        "viewType": "XML",
+        "path": "ui5.walkthrough.view",
+        "controlId": "app",
+        "controlAggregation": "pages",
+        "transition": "slide",
+        "async": true
+      },
+      "routes": [
+        {
+          "pattern": "",
+          "name": "master",
+          "target": "master"
+        },
+        {
+          "pattern": "detail/{ID}",
+          "name": "detail",
+          "target": "detail"
+        }
+      ],
+      "targets": {
+        "master": {
+          "id": "master",
+          "name": "First",
+          "path": "ui5.walkthrough.view",
+          "level": 1
+        },
+        "detail": {
+          "id": "detail",
+          "name": "Second",
+          "path": "ui5.walkthrough.view",
+          "level": 2
+        }
+      }
+    },
+    "rootView": {
+      "viewName": "ui5.walkthrough.view.App",
+      "type": "XML",
+      "id": "App",
+      "async": true
+    }
+  }
 }
